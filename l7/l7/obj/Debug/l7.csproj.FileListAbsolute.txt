@@ -7,3 +7,12 @@ C:\Users\OLKO\Desktop\c#\form02.12\les06.12\l7\l7\obj\Debug\l7.Properties.Resour
 C:\Users\OLKO\Desktop\c#\form02.12\les06.12\l7\l7\obj\Debug\l7.csproj.GenerateResource.Cache
 C:\Users\OLKO\Desktop\c#\form02.12\les06.12\l7\l7\obj\Debug\l7.exe
 C:\Users\OLKO\Desktop\c#\form02.12\les06.12\l7\l7\obj\Debug\l7.pdb
+C:\Users\ol\Desktop\share\l7\l7\bin\Debug\l7.exe.config
+C:\Users\ol\Desktop\share\l7\l7\obj\Debug\l7.exe
+C:\Users\ol\Desktop\share\l7\l7\obj\Debug\l7.pdb
+C:\Users\ol\Desktop\share\l7\l7\bin\Debug\l7.exe
+C:\Users\ol\Desktop\share\l7\l7\bin\Debug\l7.pdb
+C:\Users\ol\Desktop\share\l7\l7\obj\Debug\l7.csprojResolveAssemblyReference.cache
+C:\Users\ol\Desktop\share\l7\l7\obj\Debug\l7.Form1.resources
+C:\Users\ol\Desktop\share\l7\l7\obj\Debug\l7.Properties.Resources.resources
+C:\Users\ol\Desktop\share\l7\l7\obj\Debug\l7.csproj.GenerateResource.Cache
