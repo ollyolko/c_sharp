@@ -4,3 +4,9 @@ C:\Users\OLKO\Documents\Visual Studio 2015\Projects\bd\ConsoleApplication1\Conso
 C:\Users\OLKO\Documents\Visual Studio 2015\Projects\bd\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
 C:\Users\OLKO\Documents\Visual Studio 2015\Projects\bd\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 C:\Users\OLKO\Documents\Visual Studio 2015\Projects\bd\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\olko\Desktop\c#\clone\sh\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\olko\Desktop\c#\clone\sh\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\olko\Desktop\c#\clone\sh\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\olko\Desktop\c#\clone\sh\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\olko\Desktop\c#\clone\sh\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\olko\Desktop\c#\clone\sh\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
