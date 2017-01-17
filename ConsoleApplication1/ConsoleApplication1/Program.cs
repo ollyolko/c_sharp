@@ -19,16 +19,16 @@ namespace ConsoleApplication1
 
             connection.ConnectionString = ConfigurationManager.AppSettings["ConnectionString"];
 
-            string commandText = @"CREATE DATABASE [AdoNetExample]
-                                 COLLATE Latin1_General_CI_AS";
+            //string commandText = @"CREATE DATABASE [AdoNetExample]
+            //                     COLLATE Latin1_General_CI_AS";
 
-            //string commandText = @"
-            //use[AdoNetExample]
-            //create table UserInfo
-            //(
-            //    Id int identity,
+            string commandText = @"
+            use[AdoNetExample]
+            create table UserInfo
+            (
+                Id int identity,
                 
-            //)";
+            )";
 
             SqlCommand command=new SqlCommand(commandText, connection);
             connection.Open();
