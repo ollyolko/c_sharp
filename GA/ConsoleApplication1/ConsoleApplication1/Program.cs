@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
 namespace LessonPlanNS
 {
     static class Program
     {
         static void Main()
         {
-            //int[] groups = new int[] { 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5 };
-            //int[] teachers = new int[] { 4, 1, 2, 5, 3, 2, 5, 4, 3, 3, 1, 2, 2, 4, 3, 3, 3, 1, 5, 1, 5, 2, 2, 5, 1, 4, 5, 4, 1, 4 };
+            //int[] groups = new int[] { 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5 };
+            //int[] teachers = new int[] { 4, 1, 2, 5, 3, 2, 5, 4, 3, 3, 1, 2, 20, 4, 3, 3, 30, 1, 5, 1, 5, 2, 2, 5, 10, 4, 5, 4, 1, 15, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5 };
 
-            int[] groups = new int[]   {1,1,2,3};
-            int[] teachers = new int[] {4,5,5,5};
+            int[] groups = new int[]   {1,1,1,2,2,2,2,2,4,4,4,4,4,5,5,5,5,5};
+            int[] teachers = new int[] {4,5,8,2,4,4,5,5,6,8,7,6,8,9,7,4,8,9};
 
 
 
@@ -23,8 +24,8 @@ namespace LessonPlanNS
 
             var solver = new Solver();//создаем решатель
 
-            Plan.DaysPerWeek = 3;//устанавливаем только два учебных дна - это нужно лишь для данной тестовой задачи, в реальности - выставьте нужное число учебных дней!
-            Plan.HoursPerDay = 6;
+            Plan.DaysPerWeek = 5;//устанавливаем только два учебных дна - это нужно лишь для данной тестовой задачи, в реальности - выставьте нужное число учебных дней!
+            Plan.HoursPerDay = 8;
 
             solver.FitnessFunctions.Add(FitnessFunctions.Windows);//будем штрафовать за окна
             solver.FitnessFunctions.Add(FitnessFunctions.LateLesson);//будем штрафовать за поздние пары
@@ -43,9 +44,8 @@ namespace LessonPlanNS
     {
         public static int GroupWindowPenalty = 10;//штраф за окно у группы
         public static int TeacherWindowPenalty = 7;//штраф за окно у преподавателя
-        public static int LateLessonPenalty = 1;//штраф за позднюю пару
-
-        public static int LatesetHour = 3;//максимальный час, когда удобно проводить пары
+        public static int LateLessonPenalty = 0;//штраф за позднюю пару
+        public static int LatesetHour = 6;//максимальный час, когда удобно проводить пары
 
         /// <summary>
         /// Штраф за окна
@@ -141,7 +141,7 @@ namespace LessonPlanNS
                     pop.AddChildOfParent(pop[i]);
                 }
             }
-
+            
             //считаем фитнесс функцию для всех планов
             pop.ForEach(p => p.FitnessValue = Fitness(p));
             //сортруем популяцию по фитнесс функции
@@ -191,8 +191,8 @@ namespace LessonPlanNS
     /// </summary>
     class Plan
     {
-        public static int DaysPerWeek = 1;//6 учебных дня в неделю
-        public static int HoursPerDay = 1;//до 6 пар в день
+        public static int DaysPerWeek = 6;//6 учебных дня в неделю
+        public static int HoursPerDay = 6;//до 6 пар в день
 
         static Random rnd = new Random(3);
 
@@ -234,6 +234,18 @@ namespace LessonPlanNS
         /// </summary>
         bool AddToAnyHour(byte day, int group, int teacher)
         {
+
+            if (teacher > 5)
+            {
+                for (byte hour = 6; hour < HoursPerDay; hour++)
+                {
+                    var les = new Lessоn(day, hour, group, teacher);
+                    if (AddLesson(les))
+                        return true;
+                }
+            }
+
+
             for (byte hour = 0; hour < HoursPerDay; hour++)
             {
                 var les = new Lessоn(day, hour, group, teacher);
@@ -249,10 +261,14 @@ namespace LessonPlanNS
         /// </summary>
         public bool Init(List<Lessоn> pairs)
         {
+            //if ()
+            //{
+
+            //}
             for (int i = 0; i < HoursPerDay; i++)
                 for (int j = 0; j < DaysPerWeek; j++)
                     HourPlans[j, i] = new HourPlan();
-
+            
             foreach (var p in pairs)
                 if (!AddToAnyDayAndHour(p.Group, p.Teacher))
                     return false;
